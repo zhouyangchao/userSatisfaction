@@ -1,0 +1,6 @@
+library(psych)
+orgDataFA = read.csv("/Users/wangtaiqi/Desktop/海尔数据收集/user_data_for_haier/user_data_for_haier连续化数据.csv",encoding = 'UTF-8')
+fa.parallel(x = orgDataFA, fa="pc")
+pc <- principal(r = orgDataFA, nfactors = 7, rotate = 'none')
+rc <- principal(r = orgDataFA, nfactors = 7, rotate = 'varimax')
+#rc1 <- principal(r = orgDataFA, nfactors = 6, rotate = 'varimax')
