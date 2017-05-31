@@ -107,7 +107,7 @@ varImpPlot(回购该品牌同类产品意愿,type = 1)
 varImpPlot(推荐选购指数,type = 1)
 
 #变量名换成ICSS论文中的英文名
-c_连续化数据<-c("Channel order from","Order processing speed","Sending out speed","Delivery speed","If delivered on original/promised date","If delivered the right product","If intact in transit","If the last Km is difficult(bad weather,remote areas etc.)","If the last Km is served","Distribution staff service attitude","Installer arrival time","Installer arrival speed","Installation speed","Installation effect","Explaining service","Installer service attitude","If the installer has any charges","If the bill is complete",	"If any gifts","If any after sales processes","If price changed in a short time","Changing price","Prices compared to different channel","Price gap","Product functional diversity","Energy saving index","Performance index","Noise situation","Aesthetics performance","Intactness performance","If product is faulty",	"Fault index","Ease of use",
+c_连续化数据<-c("Channel order from","Order processing speed","Sending out speed","Delivery speed","If delivered on original/promised date","If delivered the right product","If intact in transit","If the last Km is difficult(bad weather,remote areas etc.)","If the last Km is served","Distribution staff service attitude","Installer arrival time","Installer arrival speed","Installation speed","Installation effect","Explaining service","Installer service attitude","If the installer has any charges","If the bill is complete",	"If any gifts","If any after sales processes","If price changed in a short time","Changing price","Prices compared to different channel","Price gap","Product functional diversity","Energy saving index","Performance index","Noise situation","Aesthetics performance","If product is intact","If product is faulty",	"Fault index","Ease of use",
            "Cost-effective perceived value",	"Reputation and price perceived value",	"Order processing perceived value",	"Logistics distribution perceived value",	"Installation perceived value",	"After sales service perceived value",	"Product quality perceived value","用户平台等级","用户购买金额","Consistent with the description satisfaction",	"Compared with pre-purchase expectations satisfaction",	"Customer satisfaction score","Customer complaints index","Brand perception","Perception to the product in the brand","Will of repurchase the same brand and the same kind of product",	"Will of repurchase the same brand","Recommended to buy index")
 c_ICSS变量名<-str_replace_all(c_连续化数据," ",".")
 c_ICSS变量名<-str_replace(c_ICSS变量名,"-",".")
@@ -120,7 +120,7 @@ names(orgDataAftersales)[53]<-c("After.sales.service.perceived.value")
 
 #ICSS论文的图
 Cost.effective.perceived.value<-randomForest(Cost.effective.perceived.value~Prices.compared.to.different.channel
-                                 +Product.functional.diversity+Noise.situation+Intactness.performance
+                                 +Product.functional.diversity+Noise.situation+If.product.is.intact
                                  +Performance.index+If.product.is.faulty+Ease.of.use,
                                  data = orgDataScale,importance = TRUE)
 names(orgDataScale)[8]<-c("If.the.last.Km.is.difficult")
@@ -141,7 +141,7 @@ After.sales.service.perceived.value<-randomForest(After.sales.service.perceived.
 # names(orgDataScale)[30]<-a
 
 Product.quality.perceived.value<-randomForest(Product.quality.perceived.value~Product.functional.diversity+Noise.situation+Aesthetics.performance
-                               +Intactness.performance+Performance.index+Fault.index,data = orgDataScale,importance = TRUE)
+                               +If.product.is.intact+Performance.index+Fault.index,data = orgDataScale,importance = TRUE)
 Consistent.with.the.description.satisfaction<-randomForest(Consistent.with.the.description.satisfaction~Cost.effective.perceived.value+Product.quality.perceived.value,data = orgDataScale,importance = TRUE)
 Compared.with.pre.purchase.expectations.satisfaction<-randomForest(Compared.with.pre.purchase.expectations.satisfaction~Cost.effective.perceived.value
                                      +Logistics.distribution.perceived.value+Installation.perceived.value+After.sales.service.perceived.value

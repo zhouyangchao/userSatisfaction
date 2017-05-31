@@ -72,7 +72,7 @@ model1 = lm(y1~User_level+User_purchase_amount+Order_from+Order_processing_speed
             +If_any_gifts+If_any_after.sales_processes+If_price_changed_in_a_short_time
             +Changing_price+Compared_to_different_channel_prices+Price_gap+Product_functional_diversity
             +Energy_saving_index+Performance_index+Noise_situation+Aesthetics_performance
-            +Intactness_performance+If_product_is_faulty+Fault_index+Ease_of_use,data = orgDataLR)
+            +If_product_is_intact+If_product_is_faulty+Fault_index+Ease_of_use,data = orgDataLR)
 #客户满意度变量对所有一级变量
 model2 = lm(y1~Cost.effective_satisfaction+Reputation_and_price_satisfaction
             +Order_processing_satisfaction+Logistics_distribution_satisfaction
@@ -88,7 +88,7 @@ model3 = lm(yy1~User_level+User_purchase_amount+Order_from+Order_processing_spee
             +If_any_gifts+If_any_after.sales_processes+If_price_changed_in_a_short_time
             +Changing_price+Compared_to_different_channel_prices+Price_gap+Product_functional_diversity
             +Energy_saving_index+Performance_index+Noise_situation+Aesthetics_performance
-            +Intactness_performance+If_product_is_faulty+Fault_index+Ease_of_use,data = orgDataLR)
+            +If_product_is_intact+If_product_is_faulty+Fault_index+Ease_of_use,data = orgDataLR)
 
 model4 = lm(yy2~User_level+User_purchase_amount+Order_from+Order_processing_speed+Sending_out_speed
             +Delivery_speed+If_delivered_on_original.promised_date+If_delivered_right_product
@@ -98,4 +98,4 @@ model4 = lm(yy2~User_level+User_purchase_amount+Order_from+Order_processing_spee
             +If_any_gifts+If_any_after.sales_processes+If_price_changed_in_a_short_time
             +Changing_price+Compared_to_different_channel_prices+Price_gap+Product_functional_diversity
             +Energy_saving_index+Performance_index+Noise_situation+Aesthetics_performance
-            +Intactness_performance+If_product_is_faulty+Fault_index+Ease_of_use,data = orgDataLR)
+            +If_product_is_intact+If_product_is_faulty+Fault_index+Ease_of_use,data = orgDataLR)

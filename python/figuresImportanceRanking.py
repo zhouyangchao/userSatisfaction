@@ -25,8 +25,8 @@ orgData = pd.DataFrame(orgData)
 orgData1 = orgData
 
 #列名重命名
-#orgData1.columns = ['id','User_region','User_level','User_purchase_amount','Order_from','Comment_time','Order_processing_speed','Sending_out_speed','Delivery_speed','If_delivered_on_original/promised_date','If_delivered_right_product','If intact in transit','If the last Km is difficult','If the last Km is served','Distribution staff service attitude','Installer arrival time','Installer arrival speed','Installation speed','Installation effect','Explaining service','Installer service attitude','If installer has any charges','If the bill is complete','If any gifts','If any after-sales processes','If any revisiting','If any gifts from after-sales','If contacted customer service','Reason contacting customer service','Customer service processing efficiency','If fixing','Number of fixing','Fixing result','If replacement','Replacement result','If return','Return result','After-sales processing efficiency','After-sales attitude','If problems solved','Product model','If price changed in a short time','Changing price','Compared to different channel prices','Price gap','Product functional diversity','Energy saving index','Performance index','Noise situation','Aesthetics performance','Intactness performance','If product is faulty','Fault index','Ease of use','Brand awareness to Haier','Awareness to product','Cost-effective satisfaction','Reputation and price satisfaction','Order processing satisfaction','Logistics distribution satisfaction','Installation satisfaction','After-sales service satisfaction','Product quality satisfaction','Consistent with the description satisfaction','Compared with pre-purchase expectations satisfaction','Customer satisfaction','Customer satisfaction level','Customer complaints index','Will of repurchase the same brand and the same kind of product','Will of repurchase the same brand','Recommended to buy index']
-orgData1.columns = ['id','Order_from','Comment_time','Order_processing_speed','Sending_out_speed','Delivery_speed','If_delivered_on_original/promised_date','If_delivered_right_product','If intact in transit','If the last Km is difficult','If the last Km is served','Distribution staff service attitude','Installer arrival time','Installer arrival speed','Installation speed','Installation effect','Explaining service','Installer service attitude','If installer has any charges','If the bill is complete','If any gifts','If any after-sales processes','If any revisiting','If any gifts from after-sales','If contacted customer service','Reason contacting customer service','Customer service processing efficiency','If fixing','Number of fixing','Fixing result','If replacement','Replacement result','If return','Return result','After-sales processing efficiency','After-sales attitude','If problems solved','Product model','If price changed in a short time','Changing price','Compared to different channel prices','Price gap','Product functional diversity','Energy saving index','Performance index','Noise situation','Aesthetics performance','Intactness performance','If product is faulty','Fault index','Ease of use','Cost-effective satisfaction','Reputation and price satisfaction','Order processing satisfaction','Logistics distribution satisfaction','Installation satisfaction','After-sales service satisfaction','Product quality satisfaction','User_region','User_level','User_purchase_amount','Consistent with the description satisfaction','Compared with pre-purchase expectations satisfaction','Customer satisfaction','Customer satisfaction level','Customer complaints index','Brand awareness to Haier','Awareness to product','Will of repurchase the same brand and the same kind of product','Will of repurchase the same brand','Recommended to buy index']
+#orgData1.columns = ['id','User_region','User_level','User_purchase_amount','Order_from','Comment_time','Order_processing_speed','Sending_out_speed','Delivery_speed','If_delivered_on_original/promised_date','If_delivered_right_product','If intact in transit','If the last Km is difficult','If the last Km is served','Distribution staff service attitude','Installer arrival time','Installer arrival speed','Installation speed','Installation effect','Explaining service','Installer service attitude','If installer has any charges','If the bill is complete','If any gifts','If any after-sales processes','If any revisiting','If any gifts from after-sales','If contacted customer service','Reason contacting customer service','Customer service processing efficiency','If fixing','Number of fixing','Fixing result','If replacement','Replacement result','If return','Return result','After-sales processing efficiency','After-sales attitude','If problems solved','Product model','If price changed in a short time','Changing price','Compared to different channel prices','Price gap','Product functional diversity','Energy saving index','Performance index','Noise situation','Aesthetics performance','If_product_is_intact','If product is faulty','Fault index','Ease of use','Brand awareness to Haier','Awareness to product','Cost-effective satisfaction','Reputation and price satisfaction','Order processing satisfaction','Logistics distribution satisfaction','Installation satisfaction','After-sales service satisfaction','Product quality satisfaction','Consistent with the description satisfaction','Compared with pre-purchase expectations satisfaction','Customer satisfaction','Customer satisfaction level','Customer complaints index','Will of repurchase the same brand and the same kind of product','Will of repurchase the same brand','Recommended to buy index']
+orgData1.columns = ['id','Order_from','Comment_time','Order_processing_speed','Sending_out_speed','Delivery_speed','If_delivered_on_original/promised_date','If_delivered_right_product','If intact in transit','If the last Km is difficult','If the last Km is served','Distribution staff service attitude','Installer arrival time','Installer arrival speed','Installation speed','Installation effect','Explaining service','Installer service attitude','If installer has any charges','If the bill is complete','If any gifts','If any after-sales processes','If any revisiting','If any gifts from after-sales','If contacted customer service','Reason contacting customer service','Customer service processing efficiency','If fixing','Number of fixing','Fixing result','If replacement','Replacement result','If return','Return result','After-sales processing efficiency','After-sales attitude','If problems solved','Product model','If price changed in a short time','Changing price','Compared to different channel prices','Price gap','Product functional diversity','Energy saving index','Performance index','Noise situation','Aesthetics performance','If_product_is_intact','If product is faulty','Fault index','Ease of use','Cost-effective satisfaction','Reputation and price satisfaction','Order processing satisfaction','Logistics distribution satisfaction','Installation satisfaction','After-sales service satisfaction','Product quality satisfaction','User_region','User_level','User_purchase_amount','Consistent with the description satisfaction','Compared with pre-purchase expectations satisfaction','Customer satisfaction','Customer satisfaction level','Customer complaints index','Brand awareness to Haier','Awareness to product','Will of repurchase the same brand and the same kind of product','Will of repurchase the same brand','Recommended to buy index']
 orgData1.columns = orgData1.columns.str.replace(' ','_')
 orgData1.columns
 
@@ -48,6 +48,7 @@ orgData2.loc[orgData2.User_purchase_amount <= 1299, 'User_purchase_amount'] = 1
 orgData2.loc[orgData2.User_purchase_amount >= 4999, 'User_purchase_amount'] = 3
 orgData2.loc[(orgData2.User_purchase_amount > 1299) & (orgData2.User_purchase_amount < 4999), 'User_purchase_amount'] = 2
 
+"""
 orgData2.loc[orgData2.Changing_price <= 100, 'Changing_price'] = 1
 orgData2.loc[orgData2.Changing_price >= 300, 'Changing_price'] = 3
 orgData2.loc[(orgData2.Changing_price > 100) & (orgData2.Changing_price < 300), 'Changing_price'] = 2
@@ -55,6 +56,7 @@ orgData2.loc[(orgData2.Changing_price > 100) & (orgData2.Changing_price < 300), 
 orgData2.loc[orgData2.Price_gap <= 100, 'Price_gap'] = 1
 orgData2.loc[orgData2.Price_gap >= 300, 'Price_gap'] = 3
 orgData2.loc[(orgData2.Price_gap > 100) & (orgData2.Price_gap < 300), 'Price_gap'] = 2
+"""
 
 orgData2.Order_from = orgData2.Order_from.replace('iphone客户端','1')
 orgData2.Order_from = orgData2.Order_from.replace('ipad客户端','2')
@@ -114,9 +116,13 @@ orgData2.loc[(orgData2.Installer_arrival_time == 1) , 'Installer_service_attitud
 orgData2.loc[(orgData2.Installer_arrival_time == 1) , 'If_installer_has_any_charges'] = '0'
 orgData2.loc[(orgData2.Installer_arrival_time == 1) & (orgData2.If_any_gifts.isnull()) , 'If_any_gifts'] = '0'
 orgData2.loc[(orgData2.Installer_arrival_time == 1) & (orgData2.If_the_bill_is_complete.isnull()), 'If_the_bill_is_complete'] = '1'
+
+"""
 #缺失列：处理四行价格有关的列
 orgData2.loc[orgData2.If_price_changed_in_a_short_time == 0, 'Changing_price'] = '0'
 orgData2.loc[orgData2.Compared_to_different_channel_prices == 0, 'Price_gap'] = '0'
+"""
+
 #缺失列：设备故障指数
 orgData2.loc[orgData2.If_product_is_faulty == 0, 'Fault_index'] = 0
 
@@ -184,7 +190,7 @@ X = orgData2[['User_level','User_purchase_amount','Order_from','Order_processing
               'If_fixing','Number_of_fixing', 'Fixing_result', 'If_replacement','Replacement_result',
               'If_return', 'Return_result','After-sales_processing_efficiency', 'After-sales_attitude',
               'If_problems_solved','Product_functional_diversity','Energy_saving_index','Performance_index',
-              'Noise_situation', 'Aesthetics_performance','Intactness_performance',
+              'Noise_situation', 'Aesthetics_performance','If_product_is_intact',
               'If_product_is_faulty', 'Fault_index','Ease_of_use']]
 """
 #X1包含四行价格列
@@ -198,7 +204,7 @@ X1 = orgData5[['User_level','User_purchase_amount','Order_from','Order_processin
               'If_price_changed_in_a_short_time','Changing_price',
               'Compared_to_different_channel_prices','Price_gap',
               'Product_functional_diversity','Energy_saving_index','Performance_index',
-              'Noise_situation', 'Aesthetics_performance','Intactness_performance',
+              'Noise_situation', 'Aesthetics_performance','If_product_is_intact',
               'If_product_is_faulty', 'Fault_index','Ease_of_use']]
 
 xx1 = orgData5[['Order_from','Order_processing_speed','Sending_out_speed']]
@@ -212,7 +218,7 @@ xx4 = orgData5[['If_any_after-sales_processes']]
 xx5 = orgData5[['If_price_changed_in_a_short_time','Changing_price',
               'Compared_to_different_channel_prices','Price_gap']]
 xx6 = orgData5[['Product_functional_diversity','Energy_saving_index','Performance_index',
-              'Noise_situation', 'Aesthetics_performance','Intactness_performance',
+              'Noise_situation', 'Aesthetics_performance','If_product_is_intact',
               'If_product_is_faulty', 'Fault_index','Ease_of_use']]
 
 #X2不含售后服务满意度
